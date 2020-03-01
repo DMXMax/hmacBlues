@@ -9,12 +9,18 @@ import (
 func main() {
 	fmt.Println("Experiment #1*************")
 	const msg1 = "My Secret Data"
-	const salt1 = "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b27"+"7d9ad9f146e"
+	
+	//We're splitting the salt because we'll redistribute this later.
+	
+	const salt_pt1 = "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b27"
+	const salt_pt2= "7d9ad9f146e"
+	
+	var salt = salt_pt1 + salt_pt2
 
-	makeOutputs([]byte(msg1), []byte(salt1))
+	makeOutputs([]byte(msg1), []byte(salt))
 
-	const msg2 = "7d9ad9f146eMy Secret Data"
-	const salt2 = "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b27"
+	const msg2 = salt_pt2+ msg1
+	const salt2 = salt_pt1
 
 
 	fmt.Println("\n\n\nExperiment #2************")
