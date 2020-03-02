@@ -45,7 +45,8 @@ class Playground {
         StringBuffer hexString = new StringBuffer();
         for (int i = 0; i < hash.length; i++) {
             String hex = Integer.toHexString(0xff & hash[i]);
-            if (hex.length() == 1) hexString.append('0');
+            if (hex.length() == 1) 
+                hexString.append('0');
             hexString.append(hex);
             hexString.append(' ');
         }
